@@ -1,0 +1,16 @@
+# Dependencies
+node_modules
+.pnpm-store
+
+# Production build output
+dist
+
+# OS / Editor junk
+.DS_Store
+*.pem
+.env
+.env.local
+
+# IDE
+.vscode
+.idea
