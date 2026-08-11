@@ -33,6 +33,13 @@ export interface Game {
   tags: string[];
 }
 
+const getImageUrl = (url?: string) => {
+  if (!url) return '';
+  if (url.startsWith('http') || url.startsWith('data:')) return url;
+  const cleanPath = url.replace(/^\.?\//, '');
+  return `${import.meta.env.BASE_URL}${cleanPath}`;
+};
+
 const NAV_LINKS = ["Casino", "Live Casino", "Sports", "Promotions", "VIP Club"] as const;
 
 const CATEGORIES = [
@@ -81,7 +88,7 @@ const GAMES: Game[] = [
     maxWin: "10,000x",
     g1: "#1a0533", g2: "#4c1d95", g3: "#1e1b4b",
     iconSymbol: "⚔️",
-    imageUrl: "/game-covers/cyber_samurai.png",
+    imageUrl: "./game-covers/cyber_samurai.png",
     description: "Enter Neo-Tokyo with expanding wild samurais and multiplier respins up to 100x.",
     tags: ["Bonus Buy", "High RTP", "Megaways"]
   },
@@ -98,7 +105,7 @@ const GAMES: Game[] = [
     maxWin: "500x",
     g1: "#052e16", g2: "#14532d", g3: "#0a1f0a",
     iconSymbol: "🎰",
-    imageUrl: "/game-covers/neon_roulette.png",
+    imageUrl: "./game-covers/neon_roulette.png",
     description: "Immersive 4K live dealer roulette with quantum lightning multipliers every round.",
     tags: ["Live Dealer", "High RTP"]
   },
@@ -115,7 +122,7 @@ const GAMES: Game[] = [
     maxWin: "5,000x",
     g1: "#0c1a3a", g2: "#1e3a5f", g3: "#0f172a",
     iconSymbol: "🔮",
-    imageUrl: "/game-covers/fortune_nexus.png",
+    imageUrl: "./game-covers/fortune_nexus.png",
     description: "Futuristic cluster pays slot featuring portal wild cascades and sticky multiplier symbols.",
     tags: ["Megaways", "High RTP"]
   },
@@ -132,7 +139,7 @@ const GAMES: Game[] = [
     maxWin: "20,000x",
     g1: "#1c0a00", g2: "#7c2d12", g3: "#431407",
     iconSymbol: "🐉",
-    imageUrl: "/game-covers/dragon_vault.png",
+    imageUrl: "./game-covers/dragon_vault.png",
     description: "Unlock ancient dragon treasures with guaranteed scatter re-triggers and fiery free spins.",
     tags: ["Bonus Buy", "Extreme Volatility"]
   },
@@ -149,7 +156,7 @@ const GAMES: Game[] = [
     maxWin: "1,000x",
     g1: "#0f0c29", g2: "#2d1b69", g3: "#1e1b4b",
     iconSymbol: "♠️",
-    imageUrl: "/game-covers/quantum_blackjack.png",
+    imageUrl: "./game-covers/quantum_blackjack.png",
     description: "High-speed live blackjack with random multiplier cards boosting wins up to 1000x.",
     tags: ["Live Dealer", "High RTP", "VIP Tables"]
   },
@@ -167,7 +174,7 @@ const GAMES: Game[] = [
     jackpotAmount: 2840950,
     g1: "#0a0a2e", g2: "#1a1a5e", g3: "#0d0d1e",
     iconSymbol: "💎",
-    imageUrl: "/game-covers/stellar_jackpot.png",
+    imageUrl: "./game-covers/stellar_jackpot.png",
     description: "Multi-tiered progressive cosmic jackpot wheel with life-changing payout potential.",
     tags: ["Jackpot Drops", "Extreme Volatility"]
   },
@@ -184,7 +191,7 @@ const GAMES: Game[] = [
     maxWin: "88x",
     g1: "#1a001a", g2: "#4a0080", g3: "#1a0033",
     iconSymbol: "🎴",
-    imageUrl: "/game-covers/void_baccarat.png",
+    imageUrl: "./game-covers/void_baccarat.png",
     description: "Ultra-sleek VIP baccarat table with squeeze camera angles and speed play options.",
     tags: ["VIP Tables", "High RTP", "Live Dealer"]
   },
@@ -201,7 +208,7 @@ const GAMES: Game[] = [
     maxWin: "15,000x",
     g1: "#001a33", g2: "#003d66", g3: "#001a4d",
     iconSymbol: "💎",
-    imageUrl: "/game-covers/prism_blaze.png",
+    imageUrl: "./game-covers/prism_blaze.png",
     description: "High-volatility grid slot with dual spin mechanics and mega multiplier bombs.",
     tags: ["Extreme Volatility", "Bonus Buy"]
   },
@@ -218,7 +225,7 @@ const GAMES: Game[] = [
     maxWin: "2,500x",
     g1: "#0d1a00", g2: "#2d4a00", g3: "#1a2e00",
     iconSymbol: "🃏",
-    imageUrl: "/game-covers/eclipse_poker.png",
+    imageUrl: "./game-covers/eclipse_poker.png",
     description: "High-stakes Texas Hold'em poker variant with side-bet jackpot bonuses.",
     tags: ["High RTP", "VIP Tables"]
   },
@@ -235,7 +242,7 @@ const GAMES: Game[] = [
     maxWin: "12,500x",
     g1: "#001a1a", g2: "#006666", g3: "#00264d",
     iconSymbol: "👑",
-    imageUrl: "/game-covers/cascade_royale.png",
+    imageUrl: "./game-covers/cascade_royale.png",
     description: "Royal gem cascades with growing reels, free spin multiplier paths, and instant bonus buys.",
     tags: ["Bonus Buy", "High RTP", "Megaways"]
   },
@@ -253,7 +260,7 @@ const GAMES: Game[] = [
     jackpotAmount: 4120500,
     g1: "#2d0014", g2: "#8b0038", g3: "#1a000c",
     iconSymbol: "💰",
-    imageUrl: "/game-covers/omega_jackpot.png",
+    imageUrl: "./game-covers/omega_jackpot.png",
     description: "Record-breaking mega jackpot linked across global casino networks with 4 progressive pools.",
     tags: ["Jackpot Drops", "Extreme Volatility"]
   },
@@ -270,7 +277,7 @@ const GAMES: Game[] = [
     maxWin: "8,000x",
     g1: "#0d001a", g2: "#3d0080", g3: "#001a1a",
     iconSymbol: "👻",
-    imageUrl: "/game-covers/ghost_protocol.png",
+    imageUrl: "./game-covers/ghost_protocol.png",
     description: "Cyberpunk stealth adventure slot with cloaking wilds and stealth multiplier multipliers.",
     tags: ["Bonus Buy", "High RTP"]
   },
@@ -287,7 +294,7 @@ const GAMES: Game[] = [
     maxWin: "15,000x",
     g1: "#261300", g2: "#78350f", g3: "#451a03",
     iconSymbol: "⚡",
-    imageUrl: "/game-covers/olympus_thunder.png",
+    imageUrl: "./game-covers/olympus_thunder.png",
     description: "Zeus strikes divine multiplier lightning bolts up to 500x in tumble feature free spins.",
     tags: ["Extreme Volatility", "Bonus Buy", "High RTP"]
   },
@@ -304,7 +311,7 @@ const GAMES: Game[] = [
     maxWin: "500x",
     g1: "#1e1b4b", g2: "#312e81", g3: "#0f172a",
     iconSymbol: "🎡",
-    imageUrl: "/game-covers/vegas_lightning_roulette.png",
+    imageUrl: "./game-covers/vegas_lightning_roulette.png",
     description: "High-octane live studio roulette with electrifying RNG lucky payout numbers.",
     tags: ["Live Dealer", "High RTP"]
   },
@@ -321,7 +328,7 @@ const GAMES: Game[] = [
     maxWin: "100x",
     g1: "#1e293b", g2: "#0f172a", g3: "#020617",
     iconSymbol: "👑",
-    imageUrl: "/game-covers/speed_blackjack_vip.png",
+    imageUrl: "./game-covers/speed_blackjack_vip.png",
     description: "Ultra-fast VIP blackjack for high rollers with instant card dealing and priority seats.",
     tags: ["VIP Tables", "High RTP", "Live Dealer"]
   },
@@ -338,7 +345,7 @@ const GAMES: Game[] = [
     maxWin: "5,000x",
     g1: "#3b0764", g2: "#7e22ce", g3: "#2e1065",
     iconSymbol: "🍬",
-    imageUrl: "/game-covers/sugar_burst_mania.png",
+    imageUrl: "./game-covers/sugar_burst_mania.png",
     description: "Cluster pays candy frenzy with multipliers up to 128x on exploding reel positions.",
     tags: ["Megaways", "High RTP"]
   },
@@ -355,7 +362,7 @@ const GAMES: Game[] = [
     maxWin: "10,000x",
     g1: "#1a2e05", g2: "#3f6212", g3: "#142303",
     iconSymbol: "🗿",
-    imageUrl: "/game-covers/gonzos_gold_quest.png",
+    imageUrl: "./game-covers/gonzos_gold_quest.png",
     description: "Explore lost temple ruins with golden grid cluster payouts and expanding scatters.",
     tags: ["High RTP", "Bonus Buy"]
   },
@@ -372,7 +379,7 @@ const GAMES: Game[] = [
     maxWin: "150,000x",
     g1: "#3f0000", g2: "#7f1d1d", g3: "#290000",
     iconSymbol: "🔒",
-    imageUrl: "/game-covers/san_quentin_xways.png",
+    imageUrl: "./game-covers/san_quentin_xways.png",
     description: "Record-breaking volatility slot featuring Razor Split multipliers and Lockdown Spins.",
     tags: ["Extreme Volatility", "Bonus Buy"]
   },
@@ -389,7 +396,7 @@ const GAMES: Game[] = [
     maxWin: "50,000x",
     g1: "#0284c7", g2: "#0369a1", g3: "#0c4a6e",
     iconSymbol: "🦈",
-    imageUrl: "/game-covers/razor_shark_revenge.png",
+    imageUrl: "./game-covers/razor_shark_revenge.png",
     description: "Deep sea mystery stacks and razor reveal golden coin instant wins up to 2500x.",
     tags: ["Extreme Volatility", "High RTP"]
   },
@@ -406,7 +413,7 @@ const GAMES: Game[] = [
     maxWin: "200x",
     g1: "#4c1d95", g2: "#3b0764", g3: "#2e1065",
     iconSymbol: "🎴",
-    imageUrl: "/game-covers/infinite_baccarat_3d.png",
+    imageUrl: "./game-covers/infinite_baccarat_3d.png",
     description: "3D multiplayer table baccarat with instant side-bets and live interaction.",
     tags: ["Live Dealer", "High RTP"]
   },
@@ -423,7 +430,7 @@ const GAMES: Game[] = [
     maxWin: "5,000x",
     g1: "#78350f", g2: "#451a03", g3: "#1c0a00",
     iconSymbol: "📜",
-    imageUrl: "/game-covers/book_of_cyber_dead.png",
+    imageUrl: "./game-covers/book_of_cyber_dead.png",
     description: "The timeless book slot upgraded with futuristic cyberpunk expanding symbol reels.",
     tags: ["High RTP", "Bonus Buy"]
   },
@@ -440,7 +447,7 @@ const GAMES: Game[] = [
     maxWin: "12,500x",
     g1: "#451a03", g2: "#292524", g3: "#0c0a09",
     iconSymbol: "🤠",
-    imageUrl: "/game-covers/wanted_dead_or_wild.png",
+    imageUrl: "./game-covers/wanted_dead_or_wild.png",
     description: "Wild West duel multipliers and VS symbol showdowns in legendary bonus rounds.",
     tags: ["Extreme Volatility", "Bonus Buy"]
   },
@@ -457,7 +464,7 @@ const GAMES: Game[] = [
     maxWin: "25,000x",
     g1: "#831843", g2: "#500724", g3: "#280213",
     iconSymbol: "🎪",
-    imageUrl: "/game-covers/crazy_time_quantum.png",
+    imageUrl: "./game-covers/crazy_time_quantum.png",
     description: "World famous live game show wheel with 4 crazy bonus games and massive multipliers.",
     tags: ["Live Dealer", "Hot Hits"]
   },
@@ -474,7 +481,7 @@ const GAMES: Game[] = [
     maxWin: "21,100x",
     g1: "#9d174d", g2: "#831843", g3: "#4c0519",
     iconSymbol: "🍭",
-    imageUrl: "/game-covers/sweet_bonanza_deluxe.png",
+    imageUrl: "./game-covers/sweet_bonanza_deluxe.png",
     description: "Tumble reels candy kingdom featuring 100x rainbow bomb multiplier drops.",
     tags: ["High RTP", "Bonus Buy", "Megaways"]
   }
@@ -953,7 +960,7 @@ function HeroSlider({ onPlayGame, onOpenSurprise }: { onPlayGame: (g: Game) => v
                 <div className="h-48 rounded-xl relative overflow-hidden flex items-center justify-center mb-4 border border-white/10 shadow-lg">
                   {GAMES[0].imageUrl && (
                     <img
-                      src={GAMES[0].imageUrl}
+                      src={getImageUrl(GAMES[0].imageUrl)}
                       alt="Cyber Samurai"
                       className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     />
@@ -1058,7 +1065,7 @@ function QuickAccessBar({
             className="flex-shrink-0 flex items-center gap-3 px-3.5 py-2.5 rounded-xl bg-pink-500/10 border border-pink-500/30 hover:border-pink-400 transition-all duration-200 group cursor-pointer"
           >
             {game.imageUrl ? (
-              <img src={game.imageUrl} alt={game.title} className="w-8 h-8 rounded-lg object-cover" />
+              <img src={getImageUrl(game.imageUrl)} alt={game.title} className="w-8 h-8 rounded-lg object-cover" />
             ) : (
               <Heart size={14} className="text-pink-400 fill-pink-400" />
             )}
@@ -1077,7 +1084,7 @@ function QuickAccessBar({
             className="flex-shrink-0 flex items-center gap-3 px-3.5 py-2.5 rounded-xl bg-white/5 border border-white/10 hover:border-cyan-400/50 hover:bg-white/10 transition-all duration-200 group cursor-pointer"
           >
             {game.imageUrl ? (
-              <img src={game.imageUrl} alt={game.title} className="w-8 h-8 rounded-lg object-cover" />
+              <img src={getImageUrl(game.imageUrl)} alt={game.title} className="w-8 h-8 rounded-lg object-cover" />
             ) : (
               <span className="text-base">{game.iconSymbol}</span>
             )}
@@ -1468,7 +1475,7 @@ function GameCard({
       {/* Game Cover Image */}
       {game.imageUrl ? (
         <img
-          src={game.imageUrl}
+          src={getImageUrl(game.imageUrl)}
           alt={game.title}
           className="absolute inset-0 w-full h-full object-cover z-0 transition-transform duration-700 group-hover:scale-110"
           loading="lazy"
@@ -1589,7 +1596,7 @@ function DetailedGameRow({
     >
       <div className="flex items-center gap-4 min-w-[220px]">
         {game.imageUrl ? (
-          <img src={game.imageUrl} alt={game.title} className="w-14 h-14 rounded-xl object-cover border border-white/10" />
+          <img src={getImageUrl(game.imageUrl)} alt={game.title} className="w-14 h-14 rounded-xl object-cover border border-white/10" />
         ) : (
           <div className="w-14 h-14 rounded-xl bg-white/10 flex items-center justify-center text-2xl">
             {game.iconSymbol}
@@ -1735,7 +1742,7 @@ function SurpriseMeModal({
         {selectedGame && (
           <div className={`relative p-5 rounded-2xl bg-gradient-to-b from-slate-900 to-black border-2 border-amber-400/50 mb-6 flex flex-col items-center text-center transition-all ${isSpinning ? "scale-95 opacity-80" : "scale-100"}`}>
             {selectedGame.imageUrl ? (
-              <img src={selectedGame.imageUrl} alt={selectedGame.title} className="w-24 h-24 rounded-2xl object-cover mb-3 shadow-lg border border-white/15" />
+              <img src={getImageUrl(selectedGame.imageUrl)} alt={selectedGame.title} className="w-24 h-24 rounded-2xl object-cover mb-3 shadow-lg border border-white/15" />
             ) : (
               <span className="text-5xl mb-3">{selectedGame.iconSymbol}</span>
             )}
@@ -1846,7 +1853,7 @@ function InstantSearchModal({
               >
                 <div className="flex items-center gap-3">
                   {game.imageUrl ? (
-                    <img src={game.imageUrl} alt={game.title} className="w-10 h-10 rounded-lg object-cover border border-white/10" />
+                    <img src={getImageUrl(game.imageUrl)} alt={game.title} className="w-10 h-10 rounded-lg object-cover border border-white/10" />
                   ) : (
                     <div className="w-10 h-10 rounded-lg flex items-center justify-center text-xl bg-white/5 border border-white/10">
                       {game.iconSymbol}
@@ -1961,7 +1968,7 @@ function GameLauncherModal({
         <div className="flex items-center justify-between px-6 py-4 bg-black/60 border-b border-white/10">
           <div className="flex items-center gap-3">
             {game.imageUrl ? (
-              <img src={game.imageUrl} alt={game.title} className="w-10 h-10 rounded-lg object-cover border border-white/15" />
+              <img src={getImageUrl(game.imageUrl)} alt={game.title} className="w-10 h-10 rounded-lg object-cover border border-white/15" />
             ) : (
               <span className="text-2xl">{game.iconSymbol}</span>
             )}
@@ -2019,7 +2026,7 @@ function GameLauncherModal({
         {/* Interactive Game Canvas Engine Frame */}
         <div className="relative flex-1 min-h-[340px] flex flex-col items-center justify-center p-8 bg-gradient-to-b from-[#0c1220] via-[#080a0f] to-[#040608] overflow-hidden">
           {game.imageUrl && (
-            <img src={game.imageUrl} alt="" className="absolute inset-0 w-full h-full object-cover opacity-15 pointer-events-none blur-sm" />
+            <img src={getImageUrl(game.imageUrl)} alt="" className="absolute inset-0 w-full h-full object-cover opacity-15 pointer-events-none blur-sm" />
           )}
 
           {/* Win Announcement Banner */}
